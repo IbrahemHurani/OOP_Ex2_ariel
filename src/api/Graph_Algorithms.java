@@ -11,23 +11,12 @@ public class Graph_Algorithms implements DirectedWeightedGraphAlgorithms{
      }
     @Override
     public void init(DirectedWeightedGraph g) {
-        Iterator<NodeData> firstClean=this.graph.nodeIter();
-        while(firstClean.hasNext()){
-            this.graph.removeNode(firstClean.next().getKey());
-        }
-        Iterator<NodeData> inputNode=g.nodeIter();
-        while(inputNode.hasNext()){
-            this.graph.addNode(inputNode.next());
-        }
-        Iterator<EdgeData> inputEdage=g.edgeIter();
-        while(inputEdage.hasNext()){
-            this.graph.connect(inputEdage.next().getSrc(),inputEdage.next().getDest(),inputEdage.next().getSrc());
-        }
+        this.graph=g;
     }
 
     @Override
     public DirectedWeightedGraph getGraph() {
-        return null;
+        return this.graph;
     }
 
     @Override
