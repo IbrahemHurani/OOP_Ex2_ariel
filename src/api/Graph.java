@@ -1,5 +1,6 @@
 package api;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.HashMap;
 public class Graph implements DirectedWeightedGraph{
@@ -32,17 +33,27 @@ public class Graph implements DirectedWeightedGraph{
 
     @Override
     public void connect(int src, int dest, double w) {
-
+        if(!this.edge.get(src).containsKey(dest)&&this.node.containsKey(src)&&this.node.containsKey(dest)){
+            EdgeData newEdage=new Edge(src,dest,w);
+            this.edge.get(src).put(dest,newEdage);
+            this.mc++;
+        }
     }
 
     @Override
+    //check this function
     public Iterator<NodeData> nodeIter() {
-        return null;
+        return this.node.values().iterator();
     }
 
     @Override
     public Iterator<EdgeData> edgeIter() {
-        return null;
+       ArrayList<EdgeData> newList=new ArrayList<EdgeData>();
+        for(int i:this.edge.keySet()){
+            for(int j:this.edge.get(i).keySet())
+                newList.add(this.edge.get(i).get(j));
+        }
+        return newList.iterator();
     }
 
     @Override
@@ -52,12 +63,24 @@ public class Graph implements DirectedWeightedGraph{
 
     @Override
     public NodeData removeNode(int key) {
+        if(this.node.containsKey(key)){
+            this.edge.get(key).remove(key);
+            for(int i:this.edge.keySet()){
+                this.removeEdge(i,key);
+            }
+            this.mc--;
+            return this.node.remove(key);
+        }
         return null;
     }
 
     @Override
     public EdgeData removeEdge(int src, int dest) {
-        return null;
+        if(!this.edge.get(src).containsKey(dest)) {
+            return null;
+        }
+        this.mc--;
+        return this.edge.get(src).remove(dest);
     }
 
     @Override
@@ -67,7 +90,11 @@ public class Graph implements DirectedWeightedGraph{
 
     @Override
     public int edgeSize() {
-        return 0;
+        int count=0;
+        for(int i:this.edge.keySet()) {
+            count += this.edge.get(i).size();
+        }
+        return count;
     }
 
     @Override
