@@ -1,11 +1,28 @@
 package api;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class Graph_Algorithms implements DirectedWeightedGraphAlgorithms{
+     DirectedWeightedGraph graph;
+
+     public Graph_Algorithms(){
+         this.graph=new Graph();
+     }
     @Override
     public void init(DirectedWeightedGraph g) {
-
+        Iterator<NodeData> firstClean=this.graph.nodeIter();
+        while(firstClean.hasNext()){
+            this.graph.removeNode(firstClean.next().getKey());
+        }
+        Iterator<NodeData> inputNode=g.nodeIter();
+        while(inputNode.hasNext()){
+            this.graph.addNode(inputNode.next());
+        }
+        Iterator<EdgeData> inputEdage=g.edgeIter();
+        while(inputEdage.hasNext()){
+            this.graph.connect(inputEdage.next().getSrc(),inputEdage.next().getDest(),inputEdage.next().getSrc());
+        }
     }
 
     @Override
