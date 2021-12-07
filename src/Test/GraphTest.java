@@ -10,12 +10,11 @@ import core.Node;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collection;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class GraphTest {
    DirectedWeightedGraph g=new Graph();
+   int sizeForItrNode;
     @BeforeEach
     void testBuild() {
         g =new Graph();
@@ -36,6 +35,7 @@ class GraphTest {
         g.connect(6,7,7.36544);
         g.connect(5,7,1.0001);
         g.connect(8,5,10.2);
+
     }
 
     @Test
@@ -80,19 +80,7 @@ class GraphTest {
         assertEquals(5.122, g.getEdge(1,2).getWeight());
         assertNotEquals(42.2,g.getEdge(5,7).getWeight());
     }
-
-    @Test
-    void testGetV() {
-        Collection<NodeData> v = g.getV();
-        assertEquals(10,v.size());
-    }
-
-    @Test
-    void testGetE() {
-        Collection<EdgeData> e = g.getE(1);
-        assertEquals(2,e.size());
-    }
-
+    
     @Test
     void removeNode() {
         g.removeNode(7);
