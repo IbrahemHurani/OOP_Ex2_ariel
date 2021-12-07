@@ -26,6 +26,13 @@ public class Ex2 {
         JSONObject ob= (JSONObject) parser.parse(new FileReader(json_file));
         JSONArray edge= (JSONArray) ob.get("Edges");
         JSONArray node=(JSONArray) ob.get("Nodes");
+        for(Object j:edge){
+            JSONObject o=(JSONObject) j;
+            int src=Integer.parseInt(o.get("src").toString());
+            double weight=Integer.parseInt(o.get("w").toString());
+            int dest=Integer.parseInt(o.get("dest").toString());
+            ans.connect(src,dest,weight);
+        }
         for(Object i:node){
             JSONObject o=(JSONObject) i;
             String str=o.get("pos").toString();
@@ -34,13 +41,7 @@ public class Ex2 {
             NodeData n=new Node(Integer.parseInt(o.get("id").toString()),geo);
             ans.addNode(n);
         }
-        for(Object j:edge){
-            JSONObject o=(JSONObject) j;
-            int src=Integer.parseInt(o.get("src").toString());
-            double weight=Integer.parseInt(o.get("w").toString());
-            int dest=Integer.parseInt(o.get("dest").toString());
-            ans.connect(src,dest,weight);
-        }
+        
         return ans;
     }
     /**
