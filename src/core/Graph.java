@@ -12,16 +12,14 @@ public class Graph implements DirectedWeightedGraph {
         HashMap<Integer, NodeData> node;
         ArrayList<EdgeData> edge;
         HashMap<Integer,HashMap<Integer,EdgeData>> CompleteGraph;
-        int sizeEdage;
-        int sizeNode;
+
          int mc;
     public Graph(){
         this.node=new HashMap<>();
         this.edge=new ArrayList<>();
         this.CompleteGraph=new HashMap<>();
         this.mc=0;
-        this.sizeEdage=0;
-        this.sizeNode=0;
+
     }
     @Override
     public NodeData getNode(int key) {
@@ -45,7 +43,6 @@ public class Graph implements DirectedWeightedGraph {
             this.node.put(n.getKey(),n);
             this.CompleteGraph.put(n.getKey(),new HashMap<>());
             this.mc++;
-            this.sizeNode++;
         }
 
     }
@@ -57,7 +54,6 @@ public class Graph implements DirectedWeightedGraph {
             this.edge.add(NewEdage);
             this.CompleteGraph.get(src).put(dest,NewEdage);
             this.mc++;
-            this.sizeEdage++;
         }
 
     }
@@ -94,7 +90,6 @@ public class Graph implements DirectedWeightedGraph {
             this.mc++;
             NodeData n=this.node.get(key);
             this.node.remove(key);
-            this.sizeNode--;
             return n;
         }
         return null;
@@ -107,7 +102,6 @@ public class Graph implements DirectedWeightedGraph {
                 this.edge.remove(RemoveEdage);
                 this.CompleteGraph.get(src).remove(dest);
                 this.mc++;
-                this.sizeEdage--;
                 return RemoveEdage;
             }
             return null;
@@ -115,12 +109,13 @@ public class Graph implements DirectedWeightedGraph {
 
     @Override
     public int nodeSize() {
-        return this.sizeNode;
+        return this.node.size();
     }
 
     @Override
     public int edgeSize() {
-        return this.sizeEdage;
+
+        return this.edge.size();
     }
 
     @Override
@@ -128,5 +123,3 @@ public class Graph implements DirectedWeightedGraph {
         return this.mc;
     }
 
-    
-}
