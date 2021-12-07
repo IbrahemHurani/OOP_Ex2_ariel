@@ -12,12 +12,16 @@ public class Graph implements DirectedWeightedGraph {
         HashMap<Integer, NodeData> node;
         ArrayList<EdgeData> edge;
         HashMap<Integer,HashMap<Integer,EdgeData>> CompleteGraph;
+        int sizeEdage;
+        int sizeNode;
          int mc;
     public Graph(){
         this.node=new HashMap<>();
         this.edge=new ArrayList<>();
         this.CompleteGraph=new HashMap<>();
         this.mc=0;
+        this.sizeEdage=0;
+        this.sizeNode=0;
     }
     @Override
     public NodeData getNode(int key) {
@@ -41,6 +45,7 @@ public class Graph implements DirectedWeightedGraph {
             this.node.put(n.getKey(),n);
             this.CompleteGraph.put(n.getKey(),new HashMap<>());
             this.mc++;
+            this.sizeNode++;
         }
 
     }
@@ -52,12 +57,13 @@ public class Graph implements DirectedWeightedGraph {
             this.edge.add(NewEdage);
             this.CompleteGraph.get(src).put(dest,NewEdage);
             this.mc++;
+            this.sizeEdage++;
         }
 
     }
 
     @Override
-    //check this function
+
     public Iterator<NodeData> nodeIter() {
        return this.node.values().iterator();
     }
@@ -77,7 +83,7 @@ public class Graph implements DirectedWeightedGraph {
 
     @Override
     public NodeData removeNode(int key) {
-        if(this.CompleteGraph.containsKey(key)){
+        if(this.CompleteGraph.containsKey(key)&&this.CompleteGraph.get(key).size()!=0){
             Iterator<EdgeData> RemoveAllEdges=edgeIter(key);
             while(RemoveAllEdges.hasNext()){
                 EdgeData RemoveOneEdge=RemoveAllEdges.next();
@@ -88,6 +94,7 @@ public class Graph implements DirectedWeightedGraph {
             this.mc++;
             NodeData n=this.node.get(key);
             this.node.remove(key);
+            this.sizeNode--;
             return n;
         }
         return null;
@@ -95,11 +102,12 @@ public class Graph implements DirectedWeightedGraph {
 
     @Override
     public EdgeData removeEdge(int src, int dest) {
-            if(this.CompleteGraph.containsKey(src)){
+            if(this.CompleteGraph.containsKey(src)&& CompleteGraph.get(src).containsKey(dest)&&this.CompleteGraph.get(src).get(dest)!=null){
                 EdgeData RemoveEdage=this.CompleteGraph.get(src).get(dest);
                 this.edge.remove(RemoveEdage);
                 this.CompleteGraph.get(src).remove(dest);
                 this.mc++;
+                this.sizeEdage--;
                 return RemoveEdage;
             }
             return null;
@@ -107,12 +115,12 @@ public class Graph implements DirectedWeightedGraph {
 
     @Override
     public int nodeSize() {
-        return this.node.size();
+        return this.sizeNode;
     }
 
     @Override
     public int edgeSize() {
-        return this.edge.size();
+        return this.sizeEdage;
     }
 
     @Override
@@ -120,16 +128,5 @@ public class Graph implements DirectedWeightedGraph {
         return this.mc;
     }
 
-    @Override
-    public Collection<NodeData> getV() {
-        Collection<NodeData> V = this.node.values();
-        return V;
-    }
-    @Override
-    public Collection<EdgeData> getE(int node_id) {
-        if (CompleteGraph.get(node_id) == null) {
-            return null;
-        }
-        return CompleteGraph.get(node_id).values();
-    }
+    
 }
