@@ -30,7 +30,7 @@ public class Graph_Algorithms implements api.DirectedWeightedGraphAlgorithms{
             return null;
         Graph NewCopy=new Graph();
         Iterator<NodeData> node= graph.nodeIter();
-        Iterator<EdgeData> edge= getGraph().edgeIter();
+        Iterator<EdgeData> edge= graph.edgeIter();
         while(node.hasNext()){
             NewCopy.addNode(node.next());
         }
