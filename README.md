@@ -3,7 +3,7 @@
 
 an introduction-->[Graph](https://en.wikipedia.org/wiki/Directed_graph)
 
-##My Algorithm:
+## My Algorithm:
 In this algorithm we make an implementation of the graph with
 
 packge api:
