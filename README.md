@@ -1,3 +1,3 @@
 ##  DirectedWeightedGraph
-![media_4d7_4d7e2295-55d7-4ccc-bed2-a3f10001a943_phplMKbtO](https://user-images.githubusercontent.com/86603326/145285569-205e2978-b216-4ecc-a8ec-ae25dfdf60ff.png)
+![images](https://user-images.githubusercontent.com/86603326/145286722-dcdbf181-97f5-4f8c-9db1-57e1cc49047b.jpg)
 an introduction-->[Graph](https://en.wikipedia.org/wiki/Directed_graph)
