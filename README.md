@@ -9,11 +9,15 @@ In this algorithm we make an implementation of the graph with
 packge api:
 ----
 In this packge we have all the interfaces for Graph.
-interface NodeData
-interface EdageData
-interface GeoLocation
-interface DirectedWeightedGraph
-interface DirectedWeightedGraphAlgorithms
+1)interface NodeData
+
+2)interface EdageData
+
+3)interface GeoLocation
+
+4)interface DirectedWeightedGraph
+
+5)interface DirectedWeightedGraphAlgorithms
 
 package Core:
 ---
