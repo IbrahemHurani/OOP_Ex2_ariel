@@ -92,6 +92,5 @@ public interface DirectedWeightedGraph {
  */
 	public int getMC();
 
-	public Collection<NodeData> getV();
-	public Collection<EdgeData> getE(int node_id);
+
 }
