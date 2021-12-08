@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class Graph_AlgorithmsTest {
     DirectedWeightedGraph g=new Graph();
@@ -29,6 +30,7 @@ class Graph_AlgorithmsTest {
         }
         g.connect(0,1,2.0);
         g.connect(0,4,1.0);
+        g.connect(1,0,2.0);
         g.connect(1,4,6.0);
         g.connect(1,2,5.0);
         g.connect(2,3,3.0);
@@ -50,7 +52,7 @@ class Graph_AlgorithmsTest {
     @Test
     void shortestPathDist() {
         assertEquals(2,g2.shortestPathDist(0,3));
-        assertEquals(6,g2.shortestPathDist(1,4));
+        assertEquals(3,g2.shortestPathDist(1,4));
         assertEquals(7,g2.shortestPathDist(4,2));
         assertEquals(-1,g2.shortestPathDist(15,20));
     }
@@ -74,11 +76,24 @@ class Graph_AlgorithmsTest {
     @Test
     void center() {
         assertEquals(g.getNode(0),g2.center());
+        assertNotEquals(g.getNode(3),g2.center());
     }
 
     @Test
     void tsp() {
-     
+      /*List<NodeData> cities=new ArrayList<>();
+      cities.add(g.getNode(3));
+      cities.add(g.getNode(0));
+      cities.add(g.getNode(4));
+      cities.add(g.getNode(1));
+      cities.add(g.getNode(2));
+      List<NodeData> t=new ArrayList<>();
+      t.add(g.getNode(4));
+      t.add(g.getNode(1));
+      t.add(g.getNode(3));
+      t.add(g.getNode(1));
+      t.add(g.getNode(2));
+      assertEquals(t,g2.tsp(cities));*/
     }
 
 
