@@ -80,7 +80,7 @@ class GraphTest {
         assertEquals(5.122, g.getEdge(1,2).getWeight());
         assertNotEquals(42.2,g.getEdge(5,7).getWeight());
     }
-    
+
     @Test
     void removeNode() {
         g.removeNode(7);
@@ -88,9 +88,9 @@ class GraphTest {
         NodeData n=g.getNode(4);
         assertEquals(n,g.removeNode(4));
         n=g.getNode(9);
-        assertEquals(n,g.getNode(9));
+        assertEquals(n,g.removeNode(9));
         assertEquals(null,g.getNode(17));
-
+        assertEquals(7,g.nodeSize());
     }
 
     @Test
