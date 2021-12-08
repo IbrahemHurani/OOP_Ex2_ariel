@@ -3,7 +3,8 @@
 
 an introduction-->[Graph](https://en.wikipedia.org/wiki/Directed_graph)
 #My Algorithm:
+
 In this algorithm we make an implementation of the graph with
 package Core:
-------------
+-
 ->Class Node:
