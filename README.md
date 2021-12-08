@@ -8,4 +8,14 @@ In this algorithm we make an implementation of the graph with
 
 package Core:
 ---
-->Class Node:
+->Class Node:this class implements NodeData interface,the node have ->Key
+                                                                    ->Location
+                                                                    ->Weight
+                                                                    ->Info
+                                                                    ->Tag
+                                                                    
+->Class Edge:this class implements EdgeData Interface,the Edge have ->source                                                                    
+                                                                    ->destination
+                                                                    ->Weight
+
+->
