@@ -1,6 +1,7 @@
 package core;
 
 import api.DirectedWeightedGraph;
+import api.DirectedWeightedGraphAlgorithms;
 import api.EdgeData;
 import api.NodeData;
 import com.google.gson.Gson;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Graph_Algorithms implements api.DirectedWeightedGraphAlgorithms {
+public class Graph_Algorithms implements DirectedWeightedGraphAlgorithms {
     private DirectedWeightedGraph graph;
     final int INFINITE = Integer.MAX_VALUE;
 
@@ -53,33 +54,19 @@ public class Graph_Algorithms implements api.DirectedWeightedGraphAlgorithms {
 
     @Override
     public boolean isConnected() {
-        if (this.graph.nodeSize() == 0) {
-            return false;
-        }
-        boolean[] marked = new boolean[this.graph.nodeSize()];
-        for (int j = 0; j < marked.length; j++) {
-            marked[j] = false;
-        }
-        Iterator<NodeData> node = this.graph.nodeIter();
-        while (node.hasNext()) {
-            int key = node.next().getKey();
-            Iterator<EdgeData> edgeForNode = this.graph.edgeIter(key);
-            if (edgeForNode != null) {
-                marked[key] = true;
-                while (edgeForNode.hasNext()) {
-                    int dest = edgeForNode.next().getDest();
-                    marked[dest] = true;
+        Iterator<NodeData> vertex = this.graph.nodeIter();
+        while(vertex.hasNext()) {
+            int src=vertex.next().getKey();
+           while(vertex.hasNext()) {
+               int dest=vertex.next().getKey();
+                if (shortestPathDist(src, dest) == INFINITE) {
+                    return false;
                 }
             }
         }
-        for (boolean i : marked) {
-            if (!i) {
-                return false;
-            }
-        }
         return true;
-
     }
+
 
     @Override
     public double shortestPathDist(int src, int dest) {
@@ -171,8 +158,8 @@ public class Graph_Algorithms implements api.DirectedWeightedGraphAlgorithms {
     }
 
     @Override
-    public List<NodeData> tsp(List<NodeData> cities) {//not work good
-       /*if(cities.isEmpty())
+    public List<NodeData> tsp(List<NodeData> cities) {
+       if(cities.isEmpty())
            return null;
        int indexForList=0;
        List<NodeData> t=new ArrayList<>();
@@ -186,8 +173,8 @@ public class Graph_Algorithms implements api.DirectedWeightedGraphAlgorithms {
                path.remove(path.get(0));
            t.addAll(path);
             src=dest;
-       }*/
-        return null;
+       }
+        return t;
     }
 
 
