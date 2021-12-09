@@ -1,5 +1,6 @@
 package core;
 
+import GUI.GUI_graph;
 import api.DirectedWeightedGraph;
 import api.DirectedWeightedGraphAlgorithms;
 import api.GeoLocation;
@@ -8,6 +9,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -17,31 +19,34 @@ import java.io.IOException;
 public class Ex2 {
     /**
      * This static function will be used to test your implementation
-     * @param json_file - a json file (e.g., G1.json - G3.gson)
+     * @param  - a json file (e.g., G1.json - G3.gson)
      * @return
      */
+    public static void main(String[] args) throws IOException, ParseException {
+        Ex2.runGUI("C:\\Users\\HP\\IdeaProjects\\Ex2\\src\\data\\G3.json");
+    }
     public static DirectedWeightedGraph getGrapg(String json_file) throws IOException, ParseException {
         DirectedWeightedGraph ans = new Graph();
         JSONParser parser=new JSONParser();
         JSONObject ob= (JSONObject) parser.parse(new FileReader(json_file));
         JSONArray edge= (JSONArray) ob.get("Edges");
         JSONArray node=(JSONArray) ob.get("Nodes");
-        for(Object j:edge){
-            JSONObject o=(JSONObject) j;
-            int src=Integer.parseInt(o.get("src").toString());
-            double weight=Integer.parseInt(o.get("w").toString());
-            int dest=Integer.parseInt(o.get("dest").toString());
-            ans.connect(src,dest,weight);
-        }
         for(Object i:node){
             JSONObject o=(JSONObject) i;
             String str=o.get("pos").toString();
             String [] Xyz=str.split(",");
-            GeoLocation geo=new Glocation(Integer.parseInt(Xyz[0]),Integer.parseInt(Xyz[1]),Integer.parseInt(Xyz[2]));
+            GeoLocation geo=new Glocation(Double.parseDouble(Xyz[0]),Double.parseDouble(Xyz[1]),Double.parseDouble(Xyz[2]));
             NodeData n=new Node(Integer.parseInt(o.get("id").toString()),geo);
             ans.addNode(n);
         }
-        
+        for(Object j:edge){
+            JSONObject o=(JSONObject) j;
+            int src=Integer.parseInt(o.get("src").toString());
+            double weight= Double.parseDouble(o.get("w").toString());
+            int dest=Integer.parseInt(o.get("dest").toString());
+            ans.connect(src,dest, weight);
+        }
+
         return ans;
     }
     /**
@@ -62,11 +67,10 @@ public class Ex2 {
      */
     public static void runGUI(String json_file) throws IOException, ParseException {
         DirectedWeightedGraphAlgorithms alg = getGrapgAlgo(json_file);
-        // ****** Add your code here ******
-        //
-        // ********************************
+        new GUI_graph(alg);
     }
 
 
 
     }
+
