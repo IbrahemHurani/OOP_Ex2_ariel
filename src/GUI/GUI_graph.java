@@ -1,16 +1,17 @@
 package GUI;
 
-/**
- * This Class Handles the GUI part of the project.
- */
 
 import api.DirectedWeightedGraph;
 import api.DirectedWeightedGraphAlgorithms;
+import api.NodeData;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class GUI_graph extends JFrame implements ActionListener {
     private Panel panel;
@@ -139,7 +140,7 @@ public class GUI_graph extends JFrame implements ActionListener {
             Center();
         }
         else if(e.getSource() == tsp) {
-            // TSP();
+            TSP();
         }
         else if(e.getSource() == save) {
              Save();
@@ -149,15 +150,28 @@ public class GUI_graph extends JFrame implements ActionListener {
         }
     }
 
-    /*private void TSP() {
+    private void TSP() {
         JFrame frame=new JFrame();
-        List<NodeData> t = new ArrayList<NodeData>();
+        List<NodeData> t=new ArrayList<>();
         int Stop=0;
-        while(Stop!=10){
-            String message=JOptionPane.showInputDialog(frame,"Enter the number for list");
-            NodeData n=
+        try {
+            while (Stop != 10) {
+                String message = JOptionPane.showInputDialog(frame, "Enter the number for list");
+                int key = Integer.parseInt(message);
+                NodeData n = this.graph.getNode(key);
+                t.add(n);
+                Stop=Integer.parseInt(JOptionPane.showInputDialog(frame,"Enter 10 if you finish and 0 to continue"));
+            }
+            t=this.graphAlgo.tsp(t);
+            int[] Nodekey=new int[t.size()];
+            for(int i=0;i<t.size();i++){
+                Nodekey[i]=t.get(i).getKey();
+            }
+            JOptionPane.showMessageDialog(frame, Arrays.toString(Nodekey));
+        }catch (Exception e){
+            e.printStackTrace();
         }
-    }*/
+    }
 
     private void ShortestPath() {
         JFrame frame=new JFrame();
@@ -208,7 +222,6 @@ public class GUI_graph extends JFrame implements ActionListener {
 
 
     }
-    ///////////////////////////have problem
     private void Center() {
         JOptionPane.showMessageDialog(new JFrame(), "The Center Node In The Graph is: " + graphAlgo.center().getKey(), "Center In Graph", JOptionPane.DEFAULT_OPTION);
     }
