@@ -1,8 +1,6 @@
 package GUI;
 
-/**
- * This Class Handles the GUI part of the project.
- */
+
 
 import api.DirectedWeightedGraph;
 import api.DirectedWeightedGraphAlgorithms;
@@ -225,7 +223,6 @@ public class GUI_graph extends JFrame implements ActionListener {
 
 
     }
-    ///////////////////////////have problem
     private void Center() {
         JOptionPane.showMessageDialog(new JFrame(), "The Center Node In The Graph is: " + graphAlgo.center().getKey(), "Center In Graph", JOptionPane.DEFAULT_OPTION);
     }
