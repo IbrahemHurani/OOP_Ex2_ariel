@@ -51,8 +51,8 @@ public class Panel extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        this.scaleX = this.getWidth() / Math.abs(maxX - minX) * 0.975;
-        this.scaleY = this.getHeight() / Math.abs(maxY - minY) * 0.9;
+        this.scaleX = this.getWidth() / Math.abs(maxX - minX)*0.89999 ;
+        this.scaleY = this.getHeight() / Math.abs(maxY - minY)*0.855;
         drawGraph(g);
     }
 
