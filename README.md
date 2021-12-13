@@ -51,17 +51,11 @@ package Core:
 |public boolean load(String file)                       |This function loads a graph to this graph algorithm                                            |
   
 ## Class Ex2:
-|Methods                          |                    explanation                             |
-|---------------------------------|------------------------------------------------------------|
-| public int getKey()             |this function return the key for Node (id)                  |
-| GeoLocation getLocation()       |this function return the loction for Node x,y,z             |
-|setLocation(GeoLocation p)       |this function to change the loction for Node                |
-| getWeight()                     |this functionn returns the weight associated with  node.    |
-|setWeight                        |this function to change the weight associated with node     |
-|getInfo()                        |this function returns the remark associated with this node. |
-| setInfo(String s)               |this function to change the Info for Node                   |
-|getTag()                         |this function return the tag associated with this node      |
-
+|Methods                                                                     |                    explanation                                      |
+|----------------------------------------------------------------------------|---------------------------------------------------------------------|
+| public static DirectedWeightedGraph getGrapg(String json_file)             |this function for read from file json and input in class             |
+|public static DirectedWeightedGraphAlgorithms getGrapgAlgo(String json_file)|this function for get the Graph form json                            |
+|public static void runGUI(String json_file)                                 |this function for Run the gui for the graph (Run the panel and Frame)|
 
 
 
@@ -71,28 +65,28 @@ package Core:
 
 |Name Function|Node numbers with averge edge for node in/out| Time for this function|
 |-------------|---------------------------------------------|-----------------------|
-|shortestpath |  100 Nodes and averges 20 for one node      |    125 ms             |   
-|center       |  100 Nodes and averges 20 for one node      |    47 ms              |
-|Tsp          |  100 Nodes and averges 20 for one node      |    31 ms              |
-|isConnected  |  100 Nodes and averges 20 for one node      |    47 ms              |
-|shortestpathD|  100 Nodes and averges 20 for one node      |    10 ms              |
+|shortestpath |  100 Nodes and averges 20 edges for one node|    125 ms             |   
+|center       |  100 Nodes and averges 20 edges for one node|    47 ms              |
+|Tsp          |  100 Nodes and averges 20 edges for one node|    31 ms              |
+|isConnected  |  100 Nodes and averges 20 edges for one node|    47 ms              |
+|shortestpathD|  100 Nodes and averges 20 edges for one node|    10 ms              |
 
 
-|Name Function|Node numbers with averge edge for node in/out| Time for this function|
-|-------------|---------------------------------------------|-----------------------|
-|shortestpath |  1000 Nodes and averges 20 for one node     |    256 ms             |   
-|center       |  1000 Nodes and averges 20 for one node     |    890 ms             |
-|Tsp          |  1000 Nodes and averges 20 for one node     |    250 ms             |
-|isConnected  |  1000 Nodes and averges 20 for one node     |    749 ms             |
-|shortestpathD|  1000 Nodes and averges 20 for one node     |    32 ms              |
+|Name Function|Node numbers with averge edge for node in/out | Time for this function|
+|-------------|----------------------------------------------|-----------------------|
+|shortestpath |  1000 Nodes and averges 20 edges for one node|    256 ms             |   
+|center       |  1000 Nodes and averges 20 edges for one node|    890 ms             |
+|Tsp          |  1000 Nodes and averges 20 edges for one node|    250 ms             |
+|isConnected  |  1000 Nodes and averges 20 edges for one node|    749 ms             |
+|shortestpathD|  1000 Nodes and averges 20 edges for one node|    32 ms              |
 
-|Name Function|Node numbers with averge edge for node in/out| Time for this function|
-|-------------|---------------------------------------------|-----------------------|
-|shortestpath |  10000 Nodes and averges 20 for one node    |    3 sec 343ms        |   
-|center       |  10000 Nodes and averges 20 for one node    |    47 sec 731ms       |
-|Tsp          |  10000 Nodes and averges 20 for one node    |    14 sec 420 ms      |
-|isConnected  |  10000 Nodes and averges 20 for one node    |    47 sec             |
-|shortestpathD|  10000 Nodes and averges 20 for one node    |    2 sec 400 ms       |
+|Name Function|Node numbers with averge edge for node in/out  | Time for this function|
+|-------------|-----------------------------------------------|-----------------------|
+|shortestpath |  10000 Nodes and averges 20 edges for one node|    3 sec 343ms        |   
+|center       |  10000 Nodes and averges 20 edges for one node|    47 sec 731ms       |
+|Tsp          |  10000 Nodes and averges 20 edges for one node|    14 sec 420 ms      |
+|isConnected  |  10000 Nodes and averges 20 edges for one node|    47 sec             |
+|shortestpathD| 10000 Nodes and averges 20 edges for one node |    2 sec 400 ms       |
 
 with 10.000 Nodes with 20 edges for one node the timeout and the same thing with 1.000.000 nodes.
 
