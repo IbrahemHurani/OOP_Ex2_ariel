@@ -35,7 +35,22 @@ package Core:
 
 # Description for important Class:
 
-# Class Node:
+
+# Class Graph_Algorithms:
+|Methods                                                |                                   explanation                                                 |
+|-------------------------------------------------------|-----------------------------------------------------------------------------------------------|
+|public void init(DirectedWeightedGraph g)              |this function Inits the graph on which this set of algorithms operates on                      |
+|public DirectedWeightedGraph getGraph()                |this function return the graph                                                                 |
+|DirectedWeightedGraph copy()                           |this function do deep copy for another graph is empty                                          |
+|public boolean isConnected()                           |this function return true/false if the graph is connected (you can go form to every Node)      |
+|public double shortestPathDist(int src, int dest)      |this function Computes the length of the shortest path between src(source) to dest(destination)|
+|public List<NodeData> shortestPath(int src, int dest)  |this function Computes the the shortest path between src to dest - as an ordered List of nodes |
+|public List<NodeData> tsp(List<NodeData> cities)       |this function Computes a list of consecutive nodes which go over all the nodes in cities       |
+|public NodeData center()                               |This function return the node is the center of the graph                                       |
+|public boolean save(String file)                       |this function for save the file json                                                           |
+|public boolean load(String file)                       |This function loads a graph to this graph algorithm                                            |
+  
+## Class Ex2:
 |Methods                          |                    explanation                             |
 |---------------------------------|------------------------------------------------------------|
 | public int getKey()             |this function return the key for Node (id)                  |
@@ -48,19 +63,6 @@ package Core:
 |getTag()                         |this function return the tag associated with this node      |
 
 
-# Class Graph_Algorithms:
-|Methods                                                |                    explanation                                           |
-|-------------------------------------------------------|--------------------------------------------------------------------------|
-| public void init(DirectedWeightedGraph g)             |this function Inits the graph on which this set of algorithms operates on |
-| public DirectedWeightedGraph getGraph()               |this function return the graph                                            |
-|DirectedWeightedGraph copy()                           |this function do deep copy for another graph is empty                     |
-|public boolean isConnected()                           |this function for check if the graph is connected (you can go form node
-                                                                                                                      to every Node|
-|public double shortestPathDist(int src, int dest)      |this function to change the weight associated with node     |
-|public List<NodeData> shortestPath(int src, int dest)  |this function returns the remark associated with this node. |
-|public List<NodeData> tsp(List<NodeData> cities)       |this function to change the Info for Node                   |
-| public boolean save(String file)                      |this function return the tag associated with this node      |
-|public boolean load(String file)                       |                                                            |
 
 
 
