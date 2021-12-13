@@ -82,19 +82,22 @@ class Graph_AlgorithmsTest {
 
     @Test
     void tsp() {
-      /*List<NodeData> cities=new ArrayList<>();
+      List<NodeData> cities=new ArrayList<>();
       cities.add(g.getNode(3));
       cities.add(g.getNode(0));
       cities.add(g.getNode(4));
       cities.add(g.getNode(1));
       cities.add(g.getNode(2));
       List<NodeData> t=new ArrayList<>();
-      t.add(g.getNode(4));
-      t.add(g.getNode(1));
       t.add(g.getNode(3));
       t.add(g.getNode(1));
+      t.add(g.getNode(0));
+      t.add(g.getNode(4));
+        t.add(g.getNode(3));
+        t.add(g.getNode(1));
       t.add(g.getNode(2));
-      assertEquals(t,g2.tsp(cities));*/
+
+        assertEquals(t,g2.tsp(cities));
     }
 
 
