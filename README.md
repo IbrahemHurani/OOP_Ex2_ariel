@@ -34,5 +34,42 @@ package Core:
 6)Class Ex2:this class is the main, read form File json and input all the information in the Variables and run the GUI for the graph.
 
 
+# Time analysis for function in class Graph_algorithms:
+
+|Name Function|Node numbers with averge edge for node in/out| Time for this function|
+|-------------|---------------------------------------------|-----------------------|
+|shortestpath |  100 Nodes and averges 20 for one node      |    125 ms             |   
+|center       |  100 Nodes and averges 20 for one node      |    47 ms              |
+|Tsp          |  100 Nodes and averges 20 for one node      |    31 ms              |
+|isConnected  |  100 Nodes and averges 20 for one node      |    47 ms              |
+|shortestpathD|  100 Nodes and averges 20 for one node      |    10 ms              |
+
+
+|Name Function|Node numbers with averge edge for node in/out| Time for this function|
+|-------------|---------------------------------------------|-----------------------|
+|shortestpath |  1000 Nodes and averges 20 for one node     |    256 ms             |   
+|center       |  1000 Nodes and averges 20 for one node     |    890 ms             |
+|Tsp          |  1000 Nodes and averges 20 for one node     |    250 ms             |
+|isConnected  |  1000 Nodes and averges 20 for one node     |    749 ms             |
+|shortestpathD|  1000 Nodes and averges 20 for one node     |    32 ms              |
+
+|Name Function|Node numbers with averge edge for node in/out| Time for this function|
+|-------------|---------------------------------------------|-----------------------|
+|shortestpath |  10000 Nodes and averges 20 for one node    |    3 sec 343ms        |   
+|center       |  10000 Nodes and averges 20 for one node    |    47 sec 731ms       |
+|Tsp          |  10000 Nodes and averges 20 for one node    |    14 sec 420 ms      |
+|isConnected  |  10000 Nodes and averges 20 for one node    |    47 sec             |
+|shortestpathD|  10000 Nodes and averges 20 for one node    |    2 sec 400 ms       |
+
+with 10.000 Nodes with 20 edges for one node the timeout and the same thing with 1.000.000 nodes.
+
+
+
+
+
+
+
+
+
 
 
