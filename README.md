@@ -33,6 +33,37 @@ package Core:
 
 6)Class Ex2:this class is the main, read form File json and input all the information in the Variables and run the GUI for the graph.
 
+# Description for important Class:
+
+# Class Node:
+|Methods                          |                    explanation                             |
+|---------------------------------|------------------------------------------------------------|
+| public int getKey()             |this function return the key for Node (id)                  |
+| GeoLocation getLocation()       |this function return the loction for Node x,y,z             |
+|setLocation(GeoLocation p)       |this function to change the loction for Node                |
+| getWeight()                     |this functionn returns the weight associated with  node.    |
+|setWeight                        |this function to change the weight associated with node     |
+|getInfo()                        |this function returns the remark associated with this node. |
+| setInfo(String s)               |this function to change the Info for Node                   |
+|getTag()                         |this function return the tag associated with this node      |
+
+
+# Class Graph_Algorithms:
+|Methods                                                |                    explanation                                           |
+|-------------------------------------------------------|--------------------------------------------------------------------------|
+| public void init(DirectedWeightedGraph g)             |this function Inits the graph on which this set of algorithms operates on |
+| public DirectedWeightedGraph getGraph()               |this function return the graph                                            |
+|DirectedWeightedGraph copy()                           |this function do deep copy for another graph is empty                     |
+|public boolean isConnected()                           |this function for check if the graph is connected (you can go form node
+                                                                                                                      to every Node|
+|public double shortestPathDist(int src, int dest)      |this function to change the weight associated with node     |
+|public List<NodeData> shortestPath(int src, int dest)  |this function returns the remark associated with this node. |
+|public List<NodeData> tsp(List<NodeData> cities)       |this function to change the Info for Node                   |
+| public boolean save(String file)                      |this function return the tag associated with this node      |
+|public boolean load(String file)                       |                                                            |
+
+
+
 
 # Time analysis for function in class Graph_algorithms:
 
